@@ -44,8 +44,8 @@ export default function MentionsLegales() {
               <p><span className="text-white/40">Statut :</span> <span className="text-white/70">Micro-entrepreneur</span></p>
               <p><span className="text-white/40">SIRET :</span> <span className="text-white/70">À compléter</span></p>
               <p><span className="text-white/40">Email :</span>{" "}
-                <a href="mailto:ADsolution@gmail.com" className="text-violet-400 hover:text-violet-300 transition-colors">
-                  ADsolution@gmail.com
+                <a href="mailto:contact@adsolutions47.fr" className="text-violet-400 hover:text-violet-300 transition-colors">
+                  contact@adsolutions47.fr
                 </a>
               </p>
               <p><span className="text-white/40">Zone géographique :</span> <span className="text-white/70">Lot-et-Garonne & Dordogne</span></p>
@@ -90,8 +90,8 @@ export default function MentionsLegales() {
             <p className="text-sm">
               Ce site ne collecte pas de données personnelles via un formulaire. Le seul moyen de contact est
               l&apos;adresse email{" "}
-              <a href="mailto:ADsolution@gmail.com" className="text-violet-400 hover:text-violet-300 transition-colors">
-                ADsolution@gmail.com
+              <a href="mailto:contact@adsolutions47.fr" className="text-violet-400 hover:text-violet-300 transition-colors">
+                contact@adsolutions47.fr
               </a>
               . Les informations transmises par email sont utilisées uniquement pour répondre à vos demandes.
             </p>

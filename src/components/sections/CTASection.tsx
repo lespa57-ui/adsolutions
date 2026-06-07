@@ -33,7 +33,7 @@ export default function CTASection() {
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <a
-              href="mailto:ADsolution@gmail.com?subject=Demande%20de%20devis%20ADSolutions"
+              href="mailto:contact@adsolutions47.fr?subject=Demande%20de%20devis%20ADSolutions"
               className="inline-flex items-center gap-3 px-8 py-4 rounded-2xl font-bold text-white text-lg bg-gradient-to-r from-blue-600 via-violet-600 to-pink-600 hover:from-blue-500 hover:via-violet-500 hover:to-pink-500 shadow-[0_0_50px_rgba(124,58,237,0.45)] hover:shadow-[0_0_70px_rgba(124,58,237,0.65)] transition-all duration-300 group"
             >
               <Mail size={20} />

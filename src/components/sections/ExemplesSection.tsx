@@ -78,7 +78,7 @@ export default function ExemplesSection() {
             <span className="text-white/85 font-medium">Tous les outils sont développés selon vos besoins réels.</span>
           </p>
           <a
-            href="mailto:ADsolution@gmail.com?subject=Demande%20de%20devis%20ADSolutions"
+            href="mailto:contact@adsolutions47.fr?subject=Demande%20de%20devis%20ADSolutions"
             className="inline-flex items-center gap-2 mt-5 px-6 py-3 rounded-xl font-semibold text-white text-sm bg-gradient-to-r from-blue-600 via-violet-600 to-pink-600 hover:opacity-90 shadow-[0_0_25px_rgba(124,58,237,0.3)] transition-all duration-300"
           >
             Discuter de mon projet

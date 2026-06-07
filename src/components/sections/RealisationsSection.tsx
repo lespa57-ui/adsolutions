@@ -164,7 +164,7 @@ export default function RealisationsSection() {
                 </p>
               </div>
               <a
-                href="mailto:ADsolution@gmail.com?subject=Demande%20de%20devis%20-%20ADSolutions"
+                href="mailto:contact@adsolutions47.fr?subject=Demande%20de%20devis%20-%20ADSolutions"
                 className="px-5 py-2.5 rounded-xl text-sm font-semibold text-white bg-gradient-to-r from-blue-600 via-violet-600 to-pink-600 hover:opacity-90 transition-opacity"
               >
                 Discuter de mon projet

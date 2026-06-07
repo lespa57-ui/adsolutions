@@ -56,10 +56,10 @@ export default function ContactSection() {
                 <div>
                   <p className="text-white/40 text-xs font-medium uppercase tracking-wider mb-1">Email</p>
                   <a
-                    href="mailto:ADsolution@gmail.com"
+                    href="mailto:contact@adsolutions47.fr"
                     className="text-white font-semibold hover:text-blue-400 transition-colors text-sm sm:text-base break-all"
                   >
-                    ADsolution@gmail.com
+                    contact@adsolutions47.fr
                   </a>
                 </div>
               </motion.div>
@@ -87,7 +87,7 @@ export default function ContactSection() {
                 Chaque projet commence par une simple discussion. Expliquez-nous votre besoin et nous vous proposerons la solution la plus adaptée.
               </p>
               <a
-                href="mailto:ADsolution@gmail.com?subject=Demande%20de%20devis%20-%20ADSolutions"
+                href="mailto:contact@adsolutions47.fr?subject=Demande%20de%20devis%20-%20ADSolutions"
                 className="inline-flex items-center gap-3 px-8 py-4 rounded-2xl font-semibold text-white text-lg bg-gradient-to-r from-blue-600 via-violet-600 to-pink-600 hover:from-blue-500 hover:via-violet-500 hover:to-pink-500 shadow-[0_0_40px_rgba(124,58,237,0.4)] hover:shadow-[0_0_60px_rgba(124,58,237,0.6)] transition-all duration-300 group"
               >
                 <Mail size={20} />

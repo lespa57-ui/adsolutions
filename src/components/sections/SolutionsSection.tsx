@@ -80,7 +80,7 @@ export default function SolutionsSection() {
         >
           <p className="text-white/40 text-sm mb-6">Votre besoin n&apos;est pas dans la liste ? Nous développons tout type de solution.</p>
           <a
-            href="mailto:ADsolution@gmail.com?subject=Demande%20de%20devis%20ADSolutions"
+            href="mailto:contact@adsolutions47.fr?subject=Demande%20de%20devis%20ADSolutions"
             className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-semibold text-white bg-gradient-to-r from-blue-600 via-violet-600 to-pink-600 hover:opacity-90 shadow-[0_0_30px_rgba(124,58,237,0.35)] transition-all duration-300"
           >
             Obtenir un devis gratuit

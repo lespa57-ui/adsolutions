@@ -76,7 +76,7 @@ export default function Header() {
           {/* CTA Button */}
           <div className="hidden md:flex">
             <a
-              href="mailto:ADsolution@gmail.com?subject=Demande%20de%20devis%20-%20ADSolutions"
+              href="mailto:contact@adsolutions47.fr?subject=Demande%20de%20devis%20-%20ADSolutions"
               className="relative inline-flex items-center gap-2 px-5 py-2.5 text-sm font-semibold text-white rounded-xl overflow-hidden group"
             >
               <span className="absolute inset-0 bg-gradient-to-r from-blue-600 via-violet-600 to-pink-600 transition-all duration-300 group-hover:scale-105" />
@@ -117,7 +117,7 @@ export default function Header() {
                 </button>
               ))}
               <a
-                href="mailto:ADsolution@gmail.com?subject=Demande%20de%20devis%20-%20ADSolutions"
+                href="mailto:contact@adsolutions47.fr?subject=Demande%20de%20devis%20-%20ADSolutions"
                 className="mt-2 px-5 py-3 text-sm font-semibold text-white text-center rounded-xl bg-gradient-to-r from-blue-600 via-violet-600 to-pink-600"
                 onClick={() => setMobileOpen(false)}
               >

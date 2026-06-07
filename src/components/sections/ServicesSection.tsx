@@ -168,7 +168,7 @@ export default function ServicesSection() {
                 Discutons de vos besoins et trouvons la solution idéale ensemble.
               </p>
               <a
-                href="mailto:ADsolution@gmail.com?subject=Demande%20de%20devis%20-%20ADSolutions"
+                href="mailto:contact@adsolutions47.fr?subject=Demande%20de%20devis%20-%20ADSolutions"
                 className="mt-2 px-6 py-2.5 rounded-xl text-sm font-semibold text-white bg-gradient-to-r from-blue-600 via-violet-600 to-pink-600 hover:opacity-90 transition-opacity shadow-[0_0_20px_rgba(124,58,237,0.3)]"
               >
                 Me contacter

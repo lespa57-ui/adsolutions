@@ -25,11 +25,11 @@ export default function Footer() {
             <h4 className="text-white/70 text-xs font-semibold uppercase tracking-wider mb-4">Contact</h4>
             <div className="flex flex-col gap-3">
               <a
-                href="mailto:ADsolution@gmail.com"
+                href="mailto:contact@adsolutions47.fr"
                 className="flex items-center gap-2 text-white/40 hover:text-white/70 transition-colors text-sm group"
               >
                 <Mail size={14} className="text-violet-400 group-hover:text-violet-300 transition-colors" />
-                ADsolution@gmail.com
+                contact@adsolutions47.fr
               </a>
               <div className="flex items-center gap-2 text-white/40 text-sm">
                 <MapPin size={14} className="text-violet-400" />
@@ -83,7 +83,7 @@ export default function Footer() {
               Mentions légales
             </Link>
             <a
-              href="mailto:ADsolution@gmail.com?subject=Demande%20de%20devis%20-%20ADSolutions"
+              href="mailto:contact@adsolutions47.fr?subject=Demande%20de%20devis%20-%20ADSolutions"
               className="px-4 py-1.5 rounded-lg text-xs font-semibold text-white bg-gradient-to-r from-blue-600/80 via-violet-600/80 to-pink-600/80 hover:from-blue-600 hover:via-violet-600 hover:to-pink-600 transition-all"
             >
               Demander un devis

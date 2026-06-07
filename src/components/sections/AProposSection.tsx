@@ -102,9 +102,9 @@ export default function AProposSection() {
                 <MapPin size={14} className="text-violet-400" />
                 Lot-et-Garonne & Dordogne
               </div>
-              <a href="mailto:ADsolution@gmail.com" className="flex items-center gap-2 text-white/50 hover:text-white/80 transition-colors text-sm">
+              <a href="mailto:contact@adsolutions47.fr" className="flex items-center gap-2 text-white/50 hover:text-white/80 transition-colors text-sm">
                 <Mail size={14} className="text-violet-400" />
-                ADsolution@gmail.com
+                contact@adsolutions47.fr
               </a>
             </div>
           </motion.div>
