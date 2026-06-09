@@ -43,22 +43,20 @@ export default function Footer() {
             <h4 className="text-white/70 text-xs font-semibold uppercase tracking-wider mb-4">Navigation</h4>
             <div className="flex flex-col gap-2">
               {[
-                { label: "Accueil", href: "#accueil" },
-                { label: "Services", href: "#services" },
-                { label: "Avantages", href: "#avantages" },
-                { label: "Réalisations", href: "#realisations" },
-                { label: "Contact", href: "#contact" },
+                { label: "Accueil", href: "/" },
+                { label: "Logiciels sur mesure", href: "/logiciels-sur-mesure" },
+                { label: "Applications web", href: "/applications-web" },
+                { label: "Sites internet", href: "/sites-internet" },
+                { label: "Réalisations", href: "/realisations" },
+                { label: "Contact", href: "/contact" },
               ].map((link) => (
-                <button
+                <Link
                   key={link.href}
-                  onClick={() => {
-                    const el = document.querySelector(link.href);
-                    if (el) el.scrollIntoView({ behavior: "smooth" });
-                  }}
-                  className="text-left text-white/40 hover:text-white/70 transition-colors text-sm cursor-pointer"
+                  href={link.href}
+                  className="text-white/40 hover:text-white/70 transition-colors text-sm"
                 >
                   {link.label}
-                </button>
+                </Link>
               ))}
               <Link
                 href="/mentions-legales"

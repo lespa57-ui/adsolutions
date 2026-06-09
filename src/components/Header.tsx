@@ -4,18 +4,22 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const navLinks = [
-  { label: "Accueil", href: "#accueil" },
-  { label: "Services", href: "#services" },
-  { label: "Avantages", href: "#avantages" },
-  { label: "Réalisations", href: "#realisations" },
-  { label: "Contact", href: "#contact" },
+  { label: "Accueil", href: "/" },
+  { label: "Logiciels", href: "/logiciels-sur-mesure" },
+  { label: "Applications web", href: "/applications-web" },
+  { label: "Sites internet", href: "/sites-internet" },
+  { label: "Réalisations", href: "/realisations" },
+  { label: "Contact", href: "/contact" },
 ];
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -35,12 +39,8 @@ export default function Header() {
     };
   }, [mobileOpen]);
 
-  const handleNavClick = (href: string) => {
+  const handleNavClick = () => {
     setMobileOpen(false);
-    const el = document.querySelector(href);
-    if (el) {
-      el.scrollIntoView({ behavior: "smooth" });
-    }
   };
 
   return (
@@ -58,11 +58,7 @@ export default function Header() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-20 md:h-28">
             {/* Logo */}
-            <button
-              onClick={() => handleNavClick("#accueil")}
-              className="flex-shrink-0 cursor-pointer"
-              aria-label="Retour à l'accueil"
-            >
+            <Link href="/" className="flex-shrink-0" aria-label="Retour à l'accueil">
               <Image
                 src="/LogoVF1-transparent.png"
                 alt="ADSolutions"
@@ -72,18 +68,22 @@ export default function Header() {
                 className="object-contain w-[140px] h-[44px] md:w-[260px] md:h-[65px]"
                 priority
               />
-            </button>
+            </Link>
 
             {/* Desktop Nav */}
             <nav className="hidden md:flex items-center gap-1">
               {navLinks.map((link) => (
-                <button
+                <Link
                   key={link.href}
-                  onClick={() => handleNavClick(link.href)}
-                  className="px-4 py-2 text-sm font-medium text-white/70 hover:text-white transition-colors duration-200 rounded-lg hover:bg-white/5 cursor-pointer"
+                  href={link.href}
+                  className={`px-4 py-2 text-sm font-medium transition-colors duration-200 rounded-lg hover:bg-white/5 ${
+                    pathname === link.href
+                      ? "text-white"
+                      : "text-white/70 hover:text-white"
+                  }`}
                 >
                   {link.label}
-                </button>
+                </Link>
               ))}
             </nav>
 
@@ -159,16 +159,24 @@ export default function Header() {
                 {/* Navigation Links */}
                 <nav className="flex flex-col p-2">
                   {navLinks.map((link, index) => (
-                    <motion.button
+                    <motion.div
                       key={link.href}
                       initial={{ opacity: 0, x: -20 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: index * 0.05 + 0.1 }}
-                      onClick={() => handleNavClick(link.href)}
-                      className="w-full text-left px-4 py-4 text-base font-medium text-white/80 hover:text-white hover:bg-white/5 rounded-xl transition-all duration-200 cursor-pointer"
                     >
-                      {link.label}
-                    </motion.button>
+                      <Link
+                        href={link.href}
+                        onClick={handleNavClick}
+                        className={`block w-full px-4 py-4 text-base font-medium rounded-xl transition-all duration-200 ${
+                          pathname === link.href
+                            ? "text-white bg-white/8"
+                            : "text-white/80 hover:text-white hover:bg-white/5"
+                        }`}
+                      >
+                        {link.label}
+                      </Link>
+                    </motion.div>
                   ))}
                 </nav>
 
