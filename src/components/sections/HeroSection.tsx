@@ -13,17 +13,17 @@ export default function HeroSection() {
   return (
     <section
       id="accueil"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden w-full"
     >
       {/* Background layers */}
       <div className="absolute inset-0 bg-[#050A1A]" />
 
       {/* Radial glow top-left */}
-      <div className="absolute top-[-10%] left-[-10%] w-[600px] h-[600px] rounded-full bg-blue-600/15 blur-[120px] pointer-events-none" />
+      <div className="absolute top-0 left-0 w-[400px] h-[400px] rounded-full bg-blue-600/15 blur-[120px] pointer-events-none" />
       {/* Radial glow top-right */}
-      <div className="absolute top-[-5%] right-[-5%] w-[500px] h-[500px] rounded-full bg-violet-600/20 blur-[100px] pointer-events-none" />
+      <div className="absolute top-0 right-0 w-[350px] h-[350px] rounded-full bg-violet-600/20 blur-[100px] pointer-events-none" />
       {/* Radial glow bottom-center */}
-      <div className="absolute bottom-[0%] left-[40%] w-[400px] h-[400px] rounded-full bg-pink-600/10 blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[350px] h-[350px] rounded-full bg-pink-600/10 blur-[120px] pointer-events-none" />
 
       {/* Grid pattern */}
       <div
@@ -58,14 +58,11 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.2 }}
-              className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-6"
+              className="text-[2.4rem] sm:text-5xl lg:text-6xl font-bold leading-tight mb-6 break-words"
             >
               Gagnez{" "}
-              <span className="gradient-text">plusieurs heures</span>
-              <br />
-              par semaine grâce à des logiciels
-              <br />
-              conçus pour votre entreprise
+              <span className="gradient-text">plusieurs heures</span>{" "}
+              par semaine grâce à des logiciels conçus pour votre entreprise
             </motion.h1>
 
             {/* Subtitle */}
@@ -144,14 +141,14 @@ export default function HeroSection() {
             </motion.div>
           </div>
 
-          {/* Right column - Visual */}
+          {/* Right column - Visual (hidden on mobile) */}
           <motion.div
             initial={{ opacity: 0, scale: 0.85 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.9, delay: 0.3, ease: "easeOut" }}
-            className="flex justify-center"
+            className="hidden lg:flex justify-center"
           >
-            <div className="relative w-[420px] h-[420px] sm:w-[560px] sm:h-[560px]">
+            <div className="relative w-[420px] h-[420px] xl:w-[520px] xl:h-[520px]">
               {/* Outer ring */}
               <div className="absolute inset-0 rounded-full border border-violet-500/20 animate-[spin_20s_linear_infinite]" />
               <div className="absolute inset-4 rounded-full border border-blue-500/15 animate-[spin_15s_linear_infinite_reverse]" />
