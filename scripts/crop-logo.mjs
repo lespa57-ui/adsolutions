@@ -3,8 +3,8 @@ import path from "path";
 import { fileURLToPath } from "url";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const input = path.join(__dirname, "../public/LogoVF.png");
-const output = path.join(__dirname, "../public/LogoVF-transparent.png");
+const input = path.join(__dirname, "../public/LogoVF1.png");
+const output = path.join(__dirname, "../public/LogoVF1-transparent.png");
 
 const image = sharp(input);
 const { data, info } = await image.raw().toBuffer({ resolveWithObject: true });

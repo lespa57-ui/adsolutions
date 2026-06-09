@@ -49,10 +49,10 @@ export default function Header() {
         initial={{ y: -80, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
-        className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-300 ${
+        className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-300 bg-[#050A1A] border-b ${
           scrolled || mobileOpen
-            ? "glass border-b border-white/10 shadow-[0_4px_30px_rgba(0,0,0,0.5)]"
-            : "bg-transparent"
+            ? "border-white/10 shadow-[0_4px_30px_rgba(0,0,0,0.6)]"
+            : "border-white/5"
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -60,15 +60,16 @@ export default function Header() {
             {/* Logo */}
             <button
               onClick={() => handleNavClick("#accueil")}
-              className="flex-shrink-0 cursor-pointer relative z-[101]"
+              className="flex-shrink-0 cursor-pointer"
               aria-label="Retour à l'accueil"
             >
               <Image
-                src="/LogoVF-transparent.png"
+                src="/LogoVF1-transparent.png"
                 alt="ADSolutions"
-                width={280}
+                width={260}
                 height={65}
-                className="object-contain h-12 md:h-16 w-auto"
+                sizes="(max-width: 768px) 160px, 260px"
+                className="object-contain w-[140px] h-[44px] md:w-[260px] md:h-[65px]"
                 priority
               />
             </button>

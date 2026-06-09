@@ -36,7 +36,7 @@ export default function HeroSection() {
       />
 
       {/* Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 md:pt-36 pb-20">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left column - Text */}
           <div>
@@ -151,7 +151,7 @@ export default function HeroSection() {
             transition={{ duration: 0.9, delay: 0.3, ease: "easeOut" }}
             className="flex justify-center"
           >
-            <div className="relative w-[380px] h-[380px] sm:w-[480px] sm:h-[480px]">
+            <div className="relative w-[420px] h-[420px] sm:w-[560px] sm:h-[560px]">
               {/* Outer ring */}
               <div className="absolute inset-0 rounded-full border border-violet-500/20 animate-[spin_20s_linear_infinite]" />
               <div className="absolute inset-4 rounded-full border border-blue-500/15 animate-[spin_15s_linear_infinite_reverse]" />
@@ -163,7 +163,7 @@ export default function HeroSection() {
               <div className="absolute inset-[8%] flex items-center justify-center">
                 <div className="relative w-full h-full" style={{ filter: "brightness(1.15) drop-shadow(0 0 20px rgba(124,58,237,0.5))" }}>
                   <Image
-                    src="/LogoVF-transparent.png"
+                    src="/LogoVF1.png"
                     alt="ADSolutions"
                     fill
                     sizes="(max-width: 640px) 340px, 480px"
@@ -172,7 +172,7 @@ export default function HeroSection() {
                   />
                   {/* Reflection */}
                   <div className="absolute inset-0 scale-y-[-1] origin-bottom opacity-20" style={{ transform: "scaleY(-1)", maskImage: "linear-gradient(to bottom, transparent 50%, black 100%)", WebkitMaskImage: "linear-gradient(to bottom, transparent 50%, black 100%)" }}>
-                    <Image src="/LogoVF-transparent.png" alt="" fill sizes="(max-width: 640px) 340px, 480px" className="object-contain" />
+                    <Image src="/LogoVF1.png" alt="" fill sizes="(max-width: 640px) 340px, 480px" className="object-contain" />
                   </div>
                 </div>
               </div>

@@ -9,9 +9,9 @@ interface LogoProps {
 
 export default function Logo({ size = "md", className = "" }: LogoProps) {
   const dimensions = {
-    sm: { containerW: 160, containerH: 52 },
-    md: { containerW: 240, containerH: 78 },
-    lg: { containerW: 300, containerH: 97 },
+    sm: { containerW: 200, containerH: 65 },
+    md: { containerW: 300, containerH: 97 },
+    lg: { containerW: 420, containerH: 136 },
   };
 
   const { containerW, containerH } = dimensions[size];
@@ -22,7 +22,7 @@ export default function Logo({ size = "md", className = "" }: LogoProps) {
       style={{ width: containerW, height: containerH }}
     >
       <Image
-        src="/LogoVF-transparent.png"
+        src="/LogoVF1.png"
         alt="ADSolutions – Logiciels sur mesure"
         fill
         sizes="(max-width: 768px) 240px, 340px"
