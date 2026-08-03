@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { ArrowRight, Code2, Globe, Monitor, ImageIcon } from "lucide-react";
+import ProjectScreenshot from "./ProjectScreenshot";
 
 export const metadata: Metadata = {
   title: "Réalisations – ADSolutions | Projets logiciels et sites web",
@@ -30,6 +31,7 @@ const projets = [
     desc: "Application desktop de gestion des interventions terrain pour une entreprise de maintenance. Suivi en temps réel, génération de rapports PDF, planning intégré.",
     tags: ["Desktop", "PDF", "Planning"],
     color: "blue",
+    image: "/Gestion d'interventions.png",
   },
   {
     icon: Globe,
@@ -38,6 +40,7 @@ const projets = [
     desc: "Espace client sécurisé permettant à une PME de partager des documents, suivre des commandes et communiquer avec ses clients.",
     tags: ["Web", "Authentification", "Tableau de bord"],
     color: "violet",
+    image: "/Portail client sur mesure.png",
   },
   {
     icon: Monitor,
@@ -46,6 +49,7 @@ const projets = [
     desc: "Création d'un site vitrine moderne pour une entreprise locale, avec référencement Google, design responsive et formulaire de contact.",
     tags: ["Vitrine", "SEO", "Mobile"],
     color: "pink",
+    image: "/Site vitrine professionnel.png",
   },
   {
     icon: Code2,
@@ -54,6 +58,7 @@ const projets = [
     desc: "Outil de création et suivi de devis pour un artisan. Génération automatique de PDF, relances automatiques, tableau de bord de suivi.",
     tags: ["Devis", "PDF", "Automatisation"],
     color: "blue",
+    image: "/Gestion de devis automatisée.png",
   },
   {
     icon: Globe,
@@ -62,6 +67,7 @@ const projets = [
     desc: "CRM léger et sur mesure pour une équipe commerciale. Gestion des contacts, suivi des opportunités, notes et rappels.",
     tags: ["CRM", "Contacts", "Suivi"],
     color: "violet",
+    image: "/CRM.png",
   },
   {
     icon: Monitor,
@@ -70,6 +76,7 @@ const projets = [
     desc: "Page unique optimisée pour une campagne de communication locale, avec formulaire de contact et suivi des conversions.",
     tags: ["Landing", "Conversion", "SEO"],
     color: "pink",
+    image: "/Landing page.png",
   },
 ];
 
@@ -125,11 +132,18 @@ export default function RealisationsPage() {
                   <h2 className="text-white font-bold text-lg mb-3">{p.title}</h2>
                   <p className="text-white/55 text-sm leading-relaxed mb-5 flex-1">{p.desc}</p>
 
-                  {/* Screenshot placeholder */}
-                  <div className="rounded-xl border border-white/8 bg-white/2 h-28 flex flex-col items-center justify-center gap-2 mb-4">
-                    <ImageIcon size={22} className="text-white/20" />
-                    <p className="text-white/20 text-xs">Capture d'écran à venir</p>
-                  </div>
+                  {/* Screenshot */}
+                  {p.image ? (
+                    <ProjectScreenshot
+                      src={p.image}
+                      alt={`${p.title} développé par ADSolutions`}
+                    />
+                  ) : (
+                    <div className="rounded-xl border border-white/8 bg-white/2 h-28 flex flex-col items-center justify-center gap-2 mb-4">
+                      <ImageIcon size={22} className="text-white/20" />
+                      <p className="text-white/20 text-xs">Capture d'écran à venir</p>
+                    </div>
+                  )}
 
                   <div className="flex flex-wrap gap-2">
                     {p.tags.map((tag) => (
