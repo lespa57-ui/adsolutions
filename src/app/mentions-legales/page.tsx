@@ -49,15 +49,12 @@ export default function MentionsLegales() {
               1. Éditeur du site
             </h2>
             <div className="space-y-2 text-sm">
-              <p><span className="text-white/40">Nom de l&apos;entrepreneur :</span> <span className="text-white/70">Arnaud Yves Benoit Stéphane DARLAY</span></p>
               <p><span className="text-white/40">Nom commercial :</span> <span className="text-white/70">AD Solutions</span></p>
               <p><span className="text-white/40">Statut :</span> <span className="text-white/70">Entrepreneur individuel – Micro-entreprise</span></p>
               <p><span className="text-white/40">SIREN :</span> <span className="text-white/70">108 175 829</span></p>
               <p><span className="text-white/40">SIRET :</span> <span className="text-white/70">108 175 829 00010</span></p>
               <p><span className="text-white/40">Code APE :</span> <span className="text-white/70">6201Z – Programmation informatique</span></p>
               <p><span className="text-white/40">Date d&apos;immatriculation :</span> <span className="text-white/70">03/08/2026</span></p>
-              <p><span className="text-white/40">Adresse :</span> <span className="text-white/70">372 Route de Bergerac, 47290 Lougratte, France</span></p>
-              <p><span className="text-white/40">Téléphone :</span> <span className="text-white/70">06 13 42 52 10</span></p>
               <p><span className="text-white/40">Email :</span>{" "}
                 <a href="mailto:contact@adsolutions47.fr" className="text-violet-400 hover:text-violet-300 transition-colors">
                   contact@adsolutions47.fr
