@@ -2,18 +2,29 @@ import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Monitor, CheckCircle, ArrowRight, Search, Smartphone, Wrench, TrendingUp, Zap } from "lucide-react";
+import Link from "next/link";
+import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
 
 export const metadata: Metadata = {
-  title: "Création sites internet professionnels – ADSolutions Lot-et-Garonne",
+  title: "Création Site Internet Agen et Lot-et-Garonne | AD Solutions",
   description:
-    "ADSolutions crée des sites internet professionnels pour les entreprises du Lot-et-Garonne et de la Dordogne. Vitrine moderne, responsive, référencé sur Google. Devis gratuit.",
+    "Création de sites internet vitrine et e-commerce, optimisés SEO, pour les entreprises d'Agen et du Lot-et-Garonne. Devis gratuit, réponse sous 24h.",
   keywords: [
+    "création site internet",
+    "création site internet Agen",
+    "agence web Agen",
+    "création site vitrine",
+    "création site e-commerce",
     "création site internet Lot-et-Garonne",
     "création site web professionnel",
-    "site vitrine entreprise",
-    "référencement Google local",
+    "référencement naturel",
+    "SEO",
     "création site internet Dordogne",
+    "Nouvelle-Aquitaine",
   ],
+  alternates: {
+    canonical: "/sites-internet",
+  },
   openGraph: {
     title: "Création sites internet professionnels – ADSolutions",
     description:
@@ -36,24 +47,30 @@ const inclus = [
 const types = [
   {
     title: "Site vitrine",
-    desc: "Présentez votre activité, vos services et vos coordonnées de façon professionnelle. Idéal pour les artisans, commerçants et PME.",
+    desc: "Présentez votre activité, vos services et vos coordonnées de façon professionnelle. Idéal pour les artisans, commerçants et PME d'Agen et du Lot-et-Garonne.",
     tags: ["Présentation", "Contact", "SEO local"],
+  },
+  {
+    title: "Site e-commerce",
+    desc: "Une boutique en ligne sur mesure pour vendre vos produits : catalogue, panier, paiement sécurisé et gestion des commandes.",
+    tags: ["Boutique en ligne", "Paiement", "Catalogue"],
   },
   {
     title: "Site avec espace client",
     desc: "Ajoutez une zone sécurisée pour vos clients : documents, suivi de commandes, devis en ligne.",
     tags: ["Authentification", "Tableau de bord", "Téléchargements"],
   },
-  {
-    title: "Landing page",
-    desc: "Une page unique percutante pour promouvoir un service, une offre ou un produit spécifique.",
-    tags: ["Conversion", "Campagnes", "Performance"],
-  },
 ];
 
 export default function SitesInternetPage() {
   return (
     <>
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Accueil", path: "/" },
+          { name: "Sites internet", path: "/sites-internet" },
+        ]}
+      />
       <Header />
       <main className="bg-[#050A1A] min-h-screen">
 
@@ -66,17 +83,17 @@ export default function SitesInternetPage() {
               Sites internet
             </span>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
-              Création de sites internet{" "}
+              Création de site internet{" "}
               <span className="bg-gradient-to-r from-blue-400 via-violet-400 to-pink-400 bg-clip-text text-transparent">
-                professionnels
+                à Agen et en Lot-et-Garonne
               </span>
             </h1>
             <p className="text-lg text-white/60 leading-relaxed mb-4 max-w-2xl mx-auto">
-              Votre site internet, c'est votre vitrine en ligne. ADSolutions crée des sites modernes, rapides et optimisés pour Google,
-              pour les entreprises du <strong className="text-white/80">Lot-et-Garonne et de la Dordogne</strong>.
+              Votre site internet, c&apos;est votre vitrine en ligne. AD Solutions crée des sites vitrine et e-commerce modernes, rapides et optimisés pour le référencement naturel,
+              pour les entreprises d&apos;<strong className="text-white/80">Agen, du Lot-et-Garonne et de la Dordogne</strong>.
             </p>
             <p className="text-white/50 mb-10 max-w-xl mx-auto">
-              Un site professionnel conçu sur mesure, responsive mobile, avec un référencement naturel soigné dès la création.
+              Un site professionnel conçu sur mesure, responsive mobile, avec un travail de SEO soigné dès la création pour vous aider à apparaître sur Google.
             </p>
             <a
               href="mailto:contact@adsolutions47.fr?subject=Demande%20de%20devis%20site%20internet"
@@ -135,11 +152,11 @@ export default function SitesInternetPage() {
           <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="p-8 rounded-3xl border border-violet-500/20 bg-white/2 text-center">
               <Search className="w-10 h-10 text-violet-400 mx-auto mb-4" />
-              <h3 className="text-white font-bold text-xl mb-3">Référencement Google local inclus</h3>
+              <h3 className="text-white font-bold text-xl mb-3">Référencement naturel (SEO) local inclus</h3>
               <p className="text-white/55 leading-relaxed">
                 Chaque site est construit avec une structure SEO optimisée : balises H1/H2, métadonnées, vitesse de chargement,
-                compatibilité mobile. L'objectif est que vos clients vous trouvent sur Google quand ils cherchent vos services en{" "}
-                <strong className="text-white/75">Lot-et-Garonne ou Dordogne</strong>.
+                compatibilité mobile. L&apos;objectif est que vos clients vous trouvent sur Google quand ils cherchent vos services à{" "}
+                <strong className="text-white/75">Agen, en Lot-et-Garonne ou en Dordogne</strong>.
               </p>
             </div>
           </div>
@@ -163,6 +180,12 @@ export default function SitesInternetPage() {
               <ArrowRight size={18} />
             </a>
             <p className="text-white/35 text-sm mt-4">Réponse sous 24h · Échange gratuit · Sans engagement</p>
+            <p className="text-white/35 text-sm mt-6">
+              Voir des <Link href="/realisations" className="text-violet-400 hover:text-violet-300 transition-colors">exemples de sites réalisés</Link>,
+              découvrir nos <Link href="/logiciels-sur-mesure" className="text-violet-400 hover:text-violet-300 transition-colors">logiciels sur mesure</Link>,
+              consulter la <Link href="/#faq" className="text-violet-400 hover:text-violet-300 transition-colors">FAQ</Link> ou{" "}
+              <Link href="/contact" className="text-violet-400 hover:text-violet-300 transition-colors">nous contacter</Link>.
+            </p>
           </div>
         </section>
 

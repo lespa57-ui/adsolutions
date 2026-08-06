@@ -39,7 +39,7 @@ const avantages = [
   {
     icon: MapPin,
     title: "Accompagnement local",
-    description: "Basé en Lot-et-Garonne et Dordogne, disponible pour vous rencontrer et comprendre votre contexte.",
+    description: "Basé à Agen, en Lot-et-Garonne et Dordogne, disponible pour vous rencontrer et comprendre votre contexte.",
     color: "text-cyan-400",
     bg: "bg-cyan-500/10",
     border: "border-cyan-500/20",

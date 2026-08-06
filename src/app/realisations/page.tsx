@@ -2,17 +2,24 @@ import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { ArrowRight, Code2, Globe, Monitor, ImageIcon } from "lucide-react";
+import Link from "next/link";
 import ProjectScreenshot from "./ProjectScreenshot";
+import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
 
 export const metadata: Metadata = {
-  title: "Réalisations – ADSolutions | Projets logiciels et sites web",
+  title: "Réalisations : Logiciels & Sites Web - AD Solutions",
   description:
-    "Découvrez les projets réalisés par ADSolutions : logiciels métier, applications web et sites internet pour les entreprises du Lot-et-Garonne et de la Dordogne.",
+    "Découvrez des exemples de logiciels métier, applications web et sites internet développés sur mesure pour des entreprises du Lot-et-Garonne et de la Dordogne.",
   keywords: [
-    "réalisations ADSolutions",
+    "réalisations AD Solutions",
     "projets logiciels sur mesure",
     "portfolio développeur Lot-et-Garonne",
+    "exemples applications web",
+    "exemples création site internet",
   ],
+  alternates: {
+    canonical: "/realisations",
+  },
   openGraph: {
     title: "Réalisations – ADSolutions | Projets logiciels et sites web",
     description:
@@ -89,6 +96,12 @@ const colorMap: Record<string, { border: string; badge: string; icon: string; bg
 export default function RealisationsPage() {
   return (
     <>
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Accueil", path: "/" },
+          { name: "Réalisations", path: "/realisations" },
+        ]}
+      />
       <Header />
       <main className="bg-[#050A1A] min-h-screen">
 
@@ -196,6 +209,12 @@ export default function RealisationsPage() {
               <ArrowRight size={18} />
             </a>
             <p className="text-white/35 text-sm mt-4">Réponse sous 24h · Échange gratuit · Sans engagement</p>
+            <p className="text-white/35 text-sm mt-6">
+              Découvrir nos <Link href="/logiciels-sur-mesure" className="text-violet-400 hover:text-violet-300 transition-colors">logiciels sur mesure</Link>,
+              nos <Link href="/applications-web" className="text-violet-400 hover:text-violet-300 transition-colors">applications web</Link>,
+              nos <Link href="/sites-internet" className="text-violet-400 hover:text-violet-300 transition-colors">sites internet</Link> ou{" "}
+              <Link href="/contact" className="text-violet-400 hover:text-violet-300 transition-colors">nous contacter</Link>.
+            </p>
           </div>
         </section>
 

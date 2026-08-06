@@ -2,18 +2,25 @@ import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Mail, MapPin, Clock, Calendar, ArrowRight } from "lucide-react";
+import Link from "next/link";
 import ContactForm from "./ContactForm";
+import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
 
 export const metadata: Metadata = {
-  title: "Contact – ADSolutions | Devis gratuit logiciel sur mesure",
+  title: "Contact - Devis Gratuit Logiciel Sur Mesure | AD Solutions",
   description:
-    "Contactez ADSolutions pour un devis gratuit. Développeur logiciel indépendant en Lot-et-Garonne et Dordogne. Réponse sous 24h, échange sans engagement.",
+    "Contactez AD Solutions pour un devis gratuit et sans engagement. Développeur logiciel indépendant en Lot-et-Garonne, à Agen, réponse garantie sous 24h.",
   keywords: [
-    "contact ADSolutions",
+    "contact AD Solutions",
     "devis logiciel sur mesure",
+    "devis création site internet",
     "développeur logiciel Lot-et-Garonne",
+    "contact développeur Agen",
     "contact développeur Dordogne",
   ],
+  alternates: {
+    canonical: "/contact",
+  },
   openGraph: {
     title: "Contact – ADSolutions | Devis gratuit",
     description:
@@ -27,6 +34,12 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <>
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Accueil", path: "/" },
+          { name: "Contact", path: "/contact" },
+        ]}
+      />
       <Header />
       <main className="bg-[#050A1A] min-h-screen">
 
@@ -84,7 +97,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <p className="text-white/40 text-xs uppercase tracking-wider font-medium mb-1">Zone d'intervention</p>
-                    <p className="text-white font-semibold text-sm">Lot-et-Garonne & Dordogne</p>
+                    <p className="text-white font-semibold text-sm">Agen, Lot-et-Garonne & Dordogne</p>
                     <p className="text-white/35 text-xs mt-1">Et partout en France à distance</p>
                   </div>
                 </div>
@@ -138,6 +151,12 @@ export default function ContactPage() {
                   ))}
                 </div>
               </div>
+
+              {/* Reassurance links */}
+              <p className="text-white/35 text-xs text-center">
+                Voir des <Link href="/realisations" className="text-violet-400 hover:text-violet-300 transition-colors">réalisations</Link>{" "}
+                ou consulter la <Link href="/#faq" className="text-violet-400 hover:text-violet-300 transition-colors">FAQ</Link>.
+              </p>
 
             </div>
 

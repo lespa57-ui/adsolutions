@@ -60,9 +60,9 @@ export default function HeroSection() {
               transition={{ duration: 0.7, delay: 0.2 }}
               className="text-[2.4rem] sm:text-5xl lg:text-6xl font-bold leading-tight mb-6 break-words"
             >
-              Gagnez{" "}
-              <span className="gradient-text">plusieurs heures</span>{" "}
-              par semaine grâce à des logiciels conçus pour votre entreprise
+              Logiciel sur mesure et{" "}
+              <span className="gradient-text">site internet professionnel</span>{" "}
+              pour votre entreprise
             </motion.h1>
 
             {/* Subtitle */}
@@ -72,8 +72,8 @@ export default function HeroSection() {
               transition={{ duration: 0.7, delay: 0.35 }}
               className="text-lg text-white/60 leading-relaxed mb-8 max-w-lg space-y-3"
             >
-              <p>Vous perdez du temps avec Excel, des tâches répétitives ou des outils mal adaptés à votre activité ?</p>
-              <p>ADSolutions développe des <span className="text-white/80">logiciels et applications sur mesure</span> pour automatiser votre travail et améliorer votre productivité.</p>
+              <p>Vous perdez du temps avec Excel, des tâches répétitives ou des outils mal adaptés à votre activité ?</p>
+              <p>AD Solutions développe des <span className="text-white/80">logiciels métier, applications web et sites internet sur mesure</span> pour les entreprises d&apos;Agen, du Lot-et-Garonne et de la Dordogne.</p>
             </motion.div>
 
             {/* Counters */}

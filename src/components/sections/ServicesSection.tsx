@@ -1,14 +1,16 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
 import { Monitor, Globe, Layout, Wrench, Code2 } from "lucide-react";
 
 const services = [
   {
     icon: Code2,
     title: "Logiciels métier sur mesure",
+    href: "/logiciels-sur-mesure",
     description:
-      "Des outils développés selon vos besoins pour automatiser vos processus, centraliser vos données et simplifier votre organisation.",
+      "Développement de logiciels métier sur mesure pour automatiser vos processus, centraliser vos données et simplifier la gestion de votre entreprise.",
     gradient: "from-blue-600 to-violet-600",
     glow: "rgba(59,130,246,0.2)",
     border: "border-blue-500/20",
@@ -18,8 +20,9 @@ const services = [
   {
     icon: Monitor,
     title: "Applications desktop",
+    href: "/logiciels-sur-mesure",
     description:
-      "Des applications installées sur ordinateur, rapides et adaptées à votre activité quotidienne.",
+      "Des applications installées sur ordinateur, rapides et adaptées à votre activité quotidienne, sans dépendre d'une connexion internet.",
     gradient: "from-violet-600 to-purple-700",
     glow: "rgba(124,58,237,0.2)",
     border: "border-violet-500/20",
@@ -29,8 +32,9 @@ const services = [
   {
     icon: Globe,
     title: "Applications web",
+    href: "/applications-web",
     description:
-      "Des plateformes accessibles depuis un navigateur, idéales pour travailler depuis plusieurs postes ou sites.",
+      "Des applications web sur mesure accessibles depuis un navigateur, idéales pour travailler depuis plusieurs postes ou sites en simultané.",
     gradient: "from-purple-600 to-pink-600",
     glow: "rgba(168,85,247,0.2)",
     border: "border-purple-500/20",
@@ -39,9 +43,10 @@ const services = [
   },
   {
     icon: Layout,
-    title: "Création de sites web",
+    title: "Création de sites internet",
+    href: "/sites-internet",
     description:
-      "Des sites vitrines modernes, rapides et professionnels pour présenter votre activité et attirer de nouveaux clients.",
+      "Création de sites internet vitrine ou e-commerce, modernes et optimisés pour le référencement naturel, pour attirer de nouveaux clients.",
     gradient: "from-pink-600 to-rose-600",
     glow: "rgba(236,72,153,0.2)",
     border: "border-pink-500/20",
@@ -51,8 +56,9 @@ const services = [
   {
     icon: Wrench,
     title: "Maintenance et évolutions",
+    href: null,
     description:
-      "Un accompagnement pour corriger, améliorer et faire évoluer vos outils dans le temps.",
+      "Un accompagnement pour corriger, améliorer et faire évoluer vos logiciels et sites internet dans le temps, selon vos besoins.",
     gradient: "from-cyan-600 to-blue-600",
     glow: "rgba(6,182,212,0.2)",
     border: "border-cyan-500/20",
@@ -137,7 +143,13 @@ export default function ServicesSection() {
 
                 {/* Content */}
                 <h3 className="text-lg font-semibold text-white mb-3">
-                  {service.title}
+                  {service.href ? (
+                    <Link href={service.href} className="hover:text-violet-300 transition-colors">
+                      {service.title}
+                    </Link>
+                  ) : (
+                    service.title
+                  )}
                 </h3>
                 <p className="text-white/50 text-sm leading-relaxed">
                   {service.description}

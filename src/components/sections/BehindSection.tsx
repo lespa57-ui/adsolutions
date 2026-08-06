@@ -81,8 +81,7 @@ export default function BehindSection() {
 
                 <div className="space-y-4 text-white/60 leading-relaxed mb-6">
                   <p>
-                    J&apos;accompagne les entreprises du{" "}
-                    <span className="text-white/80 font-medium">Lot-et-Garonne et de Dordogne</span>{" "}
+                    J&apos;accompagne les entreprises d&apos;<span className="text-white/80 font-medium">Agen, du Lot-et-Garonne et de Dordogne</span>{" "}
                     dans la création de logiciels métier, applications web et sites internet sur mesure.
                   </p>
                   <p>

@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { Mail, MapPin } from "lucide-react";
 import Logo from "./Logo";
+import { footerConfig } from "@/config/site";
 
 export default function Footer() {
   return (
@@ -38,18 +39,11 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Navigation */}
+          {/* Navigation - flat list of all visible links from footer zones */}
           <div>
             <h4 className="text-white/70 text-xs font-semibold uppercase tracking-wider mb-4">Navigation</h4>
             <div className="flex flex-col gap-2">
-              {[
-                { label: "Accueil", href: "/" },
-                { label: "Logiciels sur mesure", href: "/logiciels-sur-mesure" },
-                { label: "Applications web", href: "/applications-web" },
-                { label: "Sites internet", href: "/sites-internet" },
-                { label: "Réalisations", href: "/realisations" },
-                { label: "Contact", href: "/contact" },
-              ].map((link) => (
+              {footerConfig.flatMap((column) => column.links).filter((link) => link.visible).map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
@@ -58,12 +52,6 @@ export default function Footer() {
                   {link.label}
                 </Link>
               ))}
-              <Link
-                href="/mentions-legales"
-                className="text-white/40 hover:text-white/70 transition-colors text-sm"
-              >
-                Mentions légales
-              </Link>
             </div>
           </div>
         </div>

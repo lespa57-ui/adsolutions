@@ -6,15 +6,14 @@ import { Menu, X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { navConfig, type NavItem } from "@/config/site";
 
-const navLinks = [
-  { label: "Accueil", href: "/" },
-  { label: "Logiciels", href: "/logiciels-sur-mesure" },
-  { label: "Applications web", href: "/applications-web" },
-  { label: "Sites internet", href: "/sites-internet" },
-  { label: "Réalisations", href: "/realisations" },
-  { label: "Contact", href: "/contact" },
-];
+const visibleNav = navConfig.filter((item) => item.visible);
+
+function getVisibleChildren(item: NavItem): NavItem[] {
+  if (!item.children) return [];
+  return item.children.filter((child) => child.visible);
+}
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -72,19 +71,58 @@ export default function Header() {
 
             {/* Desktop Nav */}
             <nav className="hidden md:flex items-center gap-1">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className={`px-4 py-2 text-sm font-medium transition-colors duration-200 rounded-lg hover:bg-white/5 ${
-                    pathname === link.href
-                      ? "text-white"
-                      : "text-white/70 hover:text-white"
-                  }`}
-                >
-                  {link.label}
-                </Link>
-              ))}
+              {visibleNav.map((link) => {
+                const children = getVisibleChildren(link);
+                if (children.length > 1) {
+                  return (
+                    <div key={link.href} className="relative group">
+                      <Link
+                        href={link.href}
+                        className={`px-4 py-2 text-sm font-medium transition-colors duration-200 rounded-lg hover:bg-white/5 flex items-center gap-1 ${
+                          pathname === link.href || pathname.startsWith(link.href + "/")
+                            ? "text-white"
+                            : "text-white/70 hover:text-white"
+                        }`}
+                      >
+                        {link.label}
+                        <svg width="10" height="10" viewBox="0 0 10 10" fill="none" className="opacity-50">
+                          <path d="M2 4l3 3 3-3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                        </svg>
+                      </Link>
+                      <div className="absolute top-full left-0 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                        <div className="rounded-xl bg-[#0a1129] border border-white/10 shadow-2xl py-2 min-w-[200px]">
+                          {children.map((child) => (
+                            <Link
+                              key={child.href}
+                              href={child.href}
+                              className={`block px-4 py-2 text-sm transition-colors duration-200 ${
+                                pathname === child.href
+                                  ? "text-white bg-white/8"
+                                  : "text-white/70 hover:text-white hover:bg-white/5"
+                              }`}
+                            >
+                              {child.label}
+                            </Link>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  );
+                }
+                return (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className={`px-4 py-2 text-sm font-medium transition-colors duration-200 rounded-lg hover:bg-white/5 ${
+                      pathname === link.href
+                        ? "text-white"
+                        : "text-white/70 hover:text-white"
+                    }`}
+                  >
+                    {link.label}
+                  </Link>
+                );
+              })}
             </nav>
 
             {/* CTA Button - Desktop */}
@@ -158,26 +196,47 @@ export default function Header() {
               <div className="mx-4 rounded-2xl bg-gradient-to-b from-[#0a1129] to-[#050A1A] border border-white/10 shadow-2xl overflow-hidden">
                 {/* Navigation Links */}
                 <nav className="flex flex-col p-2">
-                  {navLinks.map((link, index) => (
-                    <motion.div
-                      key={link.href}
-                      initial={{ opacity: 0, x: -20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: index * 0.05 + 0.1 }}
-                    >
-                      <Link
-                        href={link.href}
-                        onClick={handleNavClick}
-                        className={`block w-full px-4 py-4 text-base font-medium rounded-xl transition-all duration-200 ${
-                          pathname === link.href
-                            ? "text-white bg-white/8"
-                            : "text-white/80 hover:text-white hover:bg-white/5"
-                        }`}
+                  {visibleNav.map((link, index) => {
+                    const children = getVisibleChildren(link);
+                    return (
+                      <motion.div
+                        key={link.href}
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: index * 0.05 + 0.1 }}
                       >
-                        {link.label}
-                      </Link>
-                    </motion.div>
-                  ))}
+                        <Link
+                          href={link.href}
+                          onClick={handleNavClick}
+                          className={`block w-full px-4 py-4 text-base font-medium rounded-xl transition-all duration-200 ${
+                            pathname === link.href
+                              ? "text-white bg-white/8"
+                              : "text-white/80 hover:text-white hover:bg-white/5"
+                          }`}
+                        >
+                          {link.label}
+                        </Link>
+                        {children.length > 1 && (
+                          <div className="flex flex-col ml-4 border-l border-white/8 pl-2">
+                            {children.filter((c) => c.href !== link.href).map((child) => (
+                              <Link
+                                key={child.href}
+                                href={child.href}
+                                onClick={handleNavClick}
+                                className={`block w-full px-4 py-3 text-sm rounded-lg transition-all duration-200 ${
+                                  pathname === child.href
+                                    ? "text-white bg-white/8"
+                                    : "text-white/60 hover:text-white hover:bg-white/5"
+                                }`}
+                              >
+                                {child.label}
+                              </Link>
+                            ))}
+                          </div>
+                        )}
+                      </motion.div>
+                    );
+                  })}
                 </nav>
 
                 {/* Divider */}

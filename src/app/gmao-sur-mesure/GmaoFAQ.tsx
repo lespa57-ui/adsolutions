@@ -6,44 +6,36 @@ import { Plus, Minus } from "lucide-react";
 
 const faqs = [
   {
-    question: "Combien coûte un logiciel sur mesure ?",
-    answer: "Chaque projet étant unique, un devis personnalisé est réalisé après étude de vos besoins. N'hésitez pas à me contacter pour un échange gratuit et sans engagement.",
+    question: "Peut-on reprendre les données existantes depuis Excel ?",
+    answer: "Oui. Les données stockées dans des fichiers Excel (inventaire des équipements, historiques d'interventions, plans de maintenance) peuvent être importées dans la GMAO lors de la mise en place. L'objectif est de centraliser toutes vos informations dans un seul outil, sans ressaisie manuelle.",
   },
   {
-    question: "Combien de temps faut-il pour développer un logiciel ou un site internet ?",
-    answer: "La durée dépend de la complexité du projet. Certains outils peuvent être réalisés en quelques jours, d'autres en plusieurs semaines. La plupart des projets sont livrés entre 1 et 6 semaines.",
+    question: "La GMAO gère-t-elle la maintenance préventive et corrective ?",
+    answer: "Oui. La GMAO sur mesure permet de planifier des maintenances préventives récurrentes (calendrier, compteur, cycles) et de gérer les interventions correctives en cas de panne. Chaque intervention est tracée avec son historique, sa durée et son responsable.",
   },
   {
-    question: "Proposez-vous la création de sites internet à Agen et dans le Lot-et-Garonne ?",
-    answer: "Oui. AD Solutions accompagne les entreprises d'Agen et de tout le Lot-et-Garonne pour la création de sites internet vitrine ou e-commerce, ainsi que le développement de logiciels et d'applications web sur mesure.",
+    question: "L'application est-elle utilisable sur mobile ou tablette ?",
+    answer: "Oui. La GMAO est une application web accessible depuis un navigateur sur PC, tablette ou smartphone. Les techniciens peuvent saisir leurs interventions directement sur le terrain, sans installation.",
   },
   {
-    question: "Intervenez-vous uniquement en Lot-et-Garonne et Dordogne ?",
-    answer: "Non. AD Solutions peut accompagner des clients partout en France. La zone Lot-et-Garonne, Agen et Dordogne est ma zone de proximité, mais je travaille aussi à distance sans problème.",
+    question: "Peut-on connecter la GMAO à un ERP existant ?",
+    answer: "Oui. La GMAO peut être interfacée avec votre ERP ou tout autre logiciel métier via des API. Cela permet de synchroniser les données d'équipements, les stocks de pièces de rechange ou les coûts de maintenance sans double saisie.",
   },
   {
-    question: "Puis-je faire créer un site e-commerce sur mesure ?",
-    answer: "Oui, en plus des sites vitrines, il est possible de développer une boutique en ligne adaptée à votre activité : catalogue produits, panier, paiement en ligne et gestion des commandes.",
+    question: "La GMAO gère-t-elle plusieurs sites ?",
+    answer: "Oui. La GMAO sur mesure peut gérer plusieurs sites, avec des équipements, des plannings et des équipes distincts par site. Les responsables peuvent avoir une vue d'ensemble ou une vue par site selon leurs besoins.",
   },
   {
-    question: "Le référencement naturel (SEO) est-il inclus dans la création du site ?",
-    answer: "Chaque site internet est construit avec une structure optimisée pour le référencement naturel : balises de titres, métadonnées, temps de chargement et compatibilité mobile, afin de faciliter votre visibilité sur Google.",
+    question: "Le logiciel peut-il évoluer avec mes besoins ?",
+    answer: "Oui. Une solution sur mesure peut être enrichie progressivement avec de nouvelles fonctionnalités, de nouveaux profils utilisateurs ou des connexions à d'autres outils, selon les modalités définies pour le projet.",
   },
   {
-    question: "Suis-je propriétaire du code et de mon site une fois le projet livré ?",
-    answer: "Oui. Une fois le projet livré et réglé, le code source et le site vous appartiennent. Vous n'êtes pas dépendant d'un abonnement obligatoire pour continuer à utiliser votre outil.",
+    question: "Suis-je propriétaire de mes données et du code ?",
+    answer: "Vous restez propriétaire de vos données. Les conditions relatives au code source, aux droits d'utilisation et à la propriété intellectuelle sont précisées clairement dans le contrat du projet.",
   },
   {
-    question: "Proposez-vous la maintenance après la livraison ?",
-    answer: "Oui, un accompagnement peut être mis en place après la livraison pour assurer la maintenance, les corrections et les évolutions de votre logiciel, application ou site internet.",
-  },
-  {
-    question: "Quelle est la différence entre un logiciel sur mesure et un logiciel généraliste ?",
-    answer: "Un logiciel sur mesure est conçu uniquement pour votre activité. Pas de fonctionnalités inutiles, pas d'abonnement mensuel excessif — uniquement ce dont vous avez besoin.",
-  },
-  {
-    question: "Avec quelles technologies développez-vous vos logiciels et sites internet ?",
-    answer: "Les projets sont développés avec des technologies modernes et reconnues (React, Next.js, Node.js) pour garantir des logiciels, applications web et sites internet performants, sécurisés et faciles à maintenir dans le temps.",
+    question: "Proposez-vous la maintenance et l'hébergement ?",
+    answer: "Oui, des prestations de maintenance, de support et d'hébergement peuvent être proposées selon les besoins du projet. Leur périmètre est défini dans la proposition commerciale.",
   },
 ];
 
@@ -60,7 +52,7 @@ const faqJsonLd = {
   })),
 };
 
-export default function FAQSection() {
+export default function GmaoFAQ() {
   const [open, setOpen] = useState<number | null>(0);
 
   return (

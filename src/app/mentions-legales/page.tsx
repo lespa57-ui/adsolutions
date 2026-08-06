@@ -1,10 +1,14 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
 
 export const metadata: Metadata = {
   title: "Mentions légales – AD Solutions | Arnaud Darlay, développeur Lot-et-Garonne",
   description:
     "Mentions légales d'AD Solutions (Arnaud Darlay), entrepreneur individuel spécialisé en logiciels sur mesure, applications web et sites internet à Lougratte (47).",
+  alternates: {
+    canonical: "/mentions-legales",
+  },
   openGraph: {
     title: "Mentions légales – AD Solutions",
     description:
@@ -18,6 +22,12 @@ export const metadata: Metadata = {
 export default function MentionsLegales() {
   return (
     <div className="min-h-screen bg-[#050A1A]">
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Accueil", path: "/" },
+          { name: "Mentions légales", path: "/mentions-legales" },
+        ]}
+      />
       {/* Header */}
       <div className="border-b border-white/8 bg-[#030712]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 py-6 flex items-center justify-between">

@@ -1,20 +1,33 @@
 import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { Code2, CheckCircle, ArrowRight, FileText, BarChart3, Wrench, Package, Calendar, Users } from "lucide-react";
+import FAQSection from "@/components/sections/FAQSection";
+import {
+  Code2, ArrowRight, FileText, Wrench, Package,
+  Calendar, Users, Search, PenTool, Rocket, RefreshCw, Settings,
+  Factory, Headphones, Globe, Network, Shield, Zap,
+  Layers, UserCheck, TrendingUp, AlertTriangle, Clock, XCircle,
+} from "lucide-react";
 import Link from "next/link";
+import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
 
 export const metadata: Metadata = {
-  title: "Logiciels sur mesure pour entreprises – ADSolutions Lot-et-Garonne",
+  title: "Logiciel Sur Mesure pour Entreprise - AD Solutions",
   description:
-    "ADSolutions développe des logiciels métier sur mesure pour les entreprises du Lot-et-Garonne et de la Dordogne. Automatisation, gestion, productivité. Devis gratuit.",
+    "Développement de logiciels métier sur mesure pour automatiser vos tâches et gagner du temps. Développeur indépendant en Lot-et-Garonne. Devis gratuit sous 24h.",
   keywords: [
+    "logiciel sur mesure",
+    "développement logiciel métier",
     "logiciel sur mesure Lot-et-Garonne",
     "logiciel métier entreprise",
     "développement logiciel Dordogne",
     "automatisation entreprise",
     "logiciel personnalisé",
+    "application web",
   ],
+  alternates: {
+    canonical: "/logiciels-sur-mesure",
+  },
   openGraph: {
     title: "Logiciels sur mesure pour entreprises – ADSolutions",
     description:
@@ -25,27 +38,54 @@ export const metadata: Metadata = {
   },
 };
 
-const avantages = [
-  "Conçu 100% selon vos besoins réels",
-  "Interface simple, sans formation longue",
-  "Données hébergées où vous le souhaitez",
-  "Évolutif au fil de votre activité",
-  "Pas d'abonnement mensuel excessif",
-  "Accompagnement local, interlocuteur unique",
+const problemes = [
+  { icon: AlertTriangle, label: "Logiciels standards limités", desc: "Les outils génériques ne couvrent jamais 100% de vos besoins réels. Vous vous adaptez à eux, pas l'inverse." },
+  { icon: XCircle, label: "Doubles saisies", desc: "Recopier les mêmes informations d'un outil à un autre fait perdre des heures et multiplie les erreurs." },
+  { icon: FileText, label: "Excel poussé dans ses retranchements", desc: "Un tableur n'est pas fait pour gérer un métier complet : versions qui se multiplient, formules qui cassent, données dispersées." },
+  { icon: Clock, label: "Pertes de temps quotidiennes", desc: "Des tâches répétitives et manuelles qui pourraient être automatisées en quelques clics avec un outil adapté." },
+  { icon: AlertTriangle, label: "Erreurs humaines", desc: "Saisie manuelle = risque d'erreur. Un logiciel sur mesure fiabilise vos données et vos processus." },
+  { icon: Layers, label: "Processus spécifiques non couverts", desc: "Chaque entreprise a sa façon de travailler. Un logiciel sur mesure épouse exactement vos processus, pas l'inverse." },
 ];
 
-const exemples = [
-  { icon: FileText, label: "Gestion de devis automatisée", desc: "Générez vos devis en quelques clics, sans saisie répétitive." },
-  { icon: Wrench, label: "Gestion des interventions", desc: "Planifiez et suivez vos interventions terrain en temps réel." },
-  { icon: Calendar, label: "Gestion de planning", desc: "Organisez les plannings de vos équipes sans Excel." },
-  { icon: Users, label: "Gestion des clients (CRM)", desc: "Centralisez vos contacts, historiques et relances." },
-  { icon: Package, label: "Gestion de stock", desc: "Suivez vos stocks et alertes en temps réel." },
-  { icon: BarChart3, label: "Tableau de bord personnalisé", desc: "Visualisez vos indicateurs métiers clés d'un seul coup d'œil." },
+const approche = [
+  { n: "01", icon: Search, t: "Analyse", d: "Échange approfondi sur votre activité, vos besoins et vos contraintes. Identification des points de blocage et des opportunités d'automatisation." },
+  { n: "02", icon: PenTool, t: "Conception", d: "Définition de l'architecture, des interfaces et des fonctionnalités. Validation avec vous avant le développement." },
+  { n: "03", icon: Code2, t: "Développement", d: "Codage du logiciel avec des technologies modernes et maintenables. Tests réguliers pour garantir la fiabilité." },
+  { n: "04", icon: Rocket, t: "Déploiement", d: "Mise en production, formation de votre équipe et accompagnement à la prise en main de l'outil." },
+  { n: "05", icon: RefreshCw, t: "Maintenance", d: "Suivi, corrections et évolutions après la livraison. Votre logiciel reste performant et s'adapte à votre croissance." },
+];
+
+const categories = [
+  { icon: Users, label: "CRM", desc: "Centralisez vos contacts, historiques, relances et opportunités commerciales." },
+  { icon: Network, label: "ERP", desc: "Gérez l'ensemble de votre entreprise : stocks, achats, ventes, comptabilité, RH." },
+  { icon: FileText, label: "Logiciel commercial", desc: "Devis, factures, bons de commande — automatisez tout votre cycle commercial." },
+  { icon: Factory, label: "Gestion de production", desc: "Suivez vos ordres de fabrication, gammes opératoires et coûts de revient." },
+  { icon: Headphones, label: "Gestion SAV", desc: "Tracez les interventions, pièces de rechange et historiques de maintenance." },
+  { icon: Package, label: "Gestion de stock", desc: "Inventaires en temps réel, alertes de seuil, gestion des entrées et sorties." },
+  { icon: Calendar, label: "Planning", desc: "Organisez les plannings de vos équipes, ressources et chantiers sans Excel." },
+  { icon: Wrench, label: "Suivi d'interventions", desc: "Planifiez et suivez vos interventions terrain en temps réel depuis un navigateur." },
+  { icon: Globe, label: "Portail client", desc: "Offrez à vos clients un accès sécurisé pour consulter leurs documents et commandes." },
+  { icon: Network, label: "Extranet", desc: "Connectez vos partenaires et fournisseurs avec un accès dédié et sécurisé." },
+];
+
+const pourquoi = [
+  { icon: Code2, label: "Développement 100% sur mesure", desc: "Aucun module générique. Chaque fonctionnalité est conçue pour votre métier." },
+  { icon: UserCheck, label: "Interlocuteur unique", desc: "Un seul contact du début à la fin. Pas de transferts, pas de déperdition." },
+  { icon: TrendingUp, label: "Code évolutif", desc: "Votre logiciel grandit avec votre activité. Ajoutez des fonctionnalités au fur et à mesure." },
+  { icon: Zap, label: "Technologies modernes", desc: "React, Next.js, Node.js — des technologies performantes, reconnues et durables." },
+  { icon: Settings, label: "Maintenance", desc: "Support, corrections et mises à jour après la livraison pour un outil toujours fiable." },
+  { icon: Shield, label: "Accompagnement", desc: "Formation, prise en main et conseils à chaque étape de votre projet." },
 ];
 
 export default function LogicielsSurMesurePage() {
   return (
     <>
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Accueil", path: "/" },
+          { name: "Logiciels sur mesure", path: "/logiciels-sur-mesure" },
+        ]}
+      />
       <Header />
       <main className="bg-[#050A1A] min-h-screen">
 
@@ -58,18 +98,20 @@ export default function LogicielsSurMesurePage() {
               Logiciels sur mesure
             </span>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
-              Logiciels sur mesure{" "}
+              Logiciel sur mesure{" "}
               <span className="bg-gradient-to-r from-blue-400 via-violet-400 to-pink-400 bg-clip-text text-transparent">
-                pour entreprises
+                pour votre entreprise
               </span>
             </h1>
             <p className="text-lg text-white/60 leading-relaxed mb-4 max-w-2xl mx-auto">
               Vous perdez du temps avec des outils génériques qui ne correspondent pas à votre activité ?
-              ADSolutions développe des logiciels métier entièrement adaptés à vos processus, en{" "}
-              <strong className="text-white/80">Lot-et-Garonne et Dordogne</strong>.
+              Le développement de logiciels métier sur mesure permet d&apos;adapter entièrement l&apos;outil à vos processus, en{" "}
+              <strong className="text-white/80">Lot-et-Garonne, à Agen et en Dordogne</strong>.
             </p>
             <p className="text-white/50 mb-10 max-w-xl mx-auto">
-              Un logiciel sur mesure, c'est un outil conçu uniquement pour vous — pas de fonctionnalités inutiles, pas d'abonnement excessif.
+              Un logiciel sur mesure, c&apos;est un outil conçu uniquement pour vous — pas de fonctionnalités inutiles, pas d&apos;abonnement excessif. Vous pouvez aussi opter pour une{" "}
+              <Link href="/applications-web" className="text-violet-400 hover:text-violet-300 transition-colors">application web</Link>{" "}
+              si vous préférez un accès depuis un navigateur.
             </p>
             <a
               href="mailto:contact@adsolutions47.fr?subject=Demande%20de%20devis%20logiciel%20sur%20mesure"
@@ -81,85 +123,135 @@ export default function LogicielsSurMesurePage() {
           </div>
         </section>
 
-        {/* Avantages */}
-        <section className="py-20 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl sm:text-3xl font-bold text-white text-center mb-12">
-            Pourquoi choisir un logiciel{" "}
-            <span className="bg-gradient-to-r from-blue-400 to-violet-400 bg-clip-text text-transparent">sur mesure</span> ?
-          </h2>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {avantages.map((item) => (
-              <div key={item} className="flex items-start gap-3 p-4 rounded-2xl bg-white/3 border border-white/8">
-                <CheckCircle className="text-violet-400 flex-shrink-0 mt-0.5" size={18} />
-                <p className="text-white/70 text-sm">{item}</p>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* Exemples */}
+        {/* Pourquoi développer un logiciel sur mesure */}
         <section className="py-20 bg-[#04081A]">
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 className="text-2xl sm:text-3xl font-bold text-white text-center mb-4">
-              Exemples de logiciels développés
+              Pourquoi développer un logiciel{" "}
+              <span className="bg-gradient-to-r from-blue-400 to-violet-400 bg-clip-text text-transparent">sur mesure</span> ?
             </h2>
-            <p className="text-white/50 text-center mb-12 max-w-xl mx-auto">
-              Chaque entreprise est différente. Voici des exemples de ce qui peut être réalisé selon vos besoins.
+            <p className="text-white/50 text-center mb-12 max-w-2xl mx-auto">
+              Les outils standards et les tableurs atteignent vite leurs limites face à la complexité de votre métier. Un logiciel sur mesure supprime ces freins.
             </p>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-              {exemples.map((ex) => (
-                <div key={ex.label} className="p-6 rounded-2xl bg-white/3 border border-white/8 hover:border-violet-500/30 transition-colors">
-                  <div className="w-10 h-10 rounded-xl bg-violet-500/10 flex items-center justify-center mb-4">
-                    <ex.icon className="text-violet-400" size={20} />
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {problemes.map((item) => (
+                <div key={item.label} className="flex items-start gap-3 p-4 rounded-2xl bg-white/3 border border-white/8">
+                  <item.icon className="text-violet-400 flex-shrink-0 mt-0.5" size={18} />
+                  <div>
+                    <h3 className="text-white font-semibold text-sm mb-1">{item.label}</h3>
+                    <p className="text-white/50 text-sm leading-relaxed">{item.desc}</p>
                   </div>
-                  <h3 className="text-white font-semibold mb-2">{ex.label}</h3>
-                  <p className="text-white/50 text-sm leading-relaxed">{ex.desc}</p>
                 </div>
               ))}
             </div>
           </div>
         </section>
 
-        {/* Process */}
+        {/* Notre approche - Timeline */}
         <section className="py-20 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl sm:text-3xl font-bold text-white text-center mb-12">
-            Comment ça se passe ?
+          <h2 className="text-2xl sm:text-3xl font-bold text-white text-center mb-4">
+            Notre{" "}
+            <span className="bg-gradient-to-r from-blue-400 to-violet-400 bg-clip-text text-transparent">approche</span>
           </h2>
+          <p className="text-white/50 text-center mb-12 max-w-xl mx-auto">
+            Une méthode claire en 5 étapes, de l'analyse à la maintenance, pour un résultat qui correspond exactement à votre métier.
+          </p>
           <div className="flex flex-col gap-4">
-            {[
-              { n: "01", t: "Échange gratuit", d: "On discute de votre besoin, sans engagement." },
-              { n: "02", t: "Analyse & proposition", d: "Je vous propose une solution adaptée à votre activité et votre budget." },
-              { n: "03", t: "Développement", d: "Je développe votre logiciel avec des technologies modernes et maintenables." },
-              { n: "04", t: "Livraison & formation", d: "Livraison soignée, prise en main et support inclus." },
-            ].map((step) => (
+            {approche.map((step) => (
               <div key={step.n} className="flex gap-5 p-5 rounded-2xl bg-white/3 border border-white/8">
-                <span className="text-3xl font-bold text-violet-500/30 flex-shrink-0 leading-none">{step.n}</span>
+                <div className="flex flex-col items-center flex-shrink-0">
+                  <div className="w-10 h-10 rounded-xl bg-violet-500/10 flex items-center justify-center">
+                    <step.icon className="text-violet-400" size={20} />
+                  </div>
+                </div>
                 <div>
-                  <h3 className="text-white font-semibold mb-1">{step.t}</h3>
-                  <p className="text-white/50 text-sm">{step.d}</p>
+                  <div className="flex items-center gap-3 mb-1">
+                    <span className="text-xs font-bold text-violet-500/50">{step.n}</span>
+                    <h3 className="text-white font-semibold">{step.t}</h3>
+                  </div>
+                  <p className="text-white/50 text-sm leading-relaxed">{step.d}</p>
                 </div>
               </div>
             ))}
           </div>
         </section>
 
-        {/* CTA */}
+        {/* Ce que nous développons */}
+        <section className="py-20 bg-[#04081A]">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 className="text-2xl sm:text-3xl font-bold text-white text-center mb-4">
+              Ce que nous{" "}
+              <span className="bg-gradient-to-r from-blue-400 to-violet-400 bg-clip-text text-transparent">développons</span>
+            </h2>
+            <p className="text-white/50 text-center mb-12 max-w-xl mx-auto">
+              Chaque entreprise est différente. Voici les types de logiciels métier que nous concevons sur mesure.
+            </p>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+              {categories.map((cat) => (
+                <div key={cat.label} className="p-6 rounded-2xl bg-white/3 border border-white/8 hover:border-violet-500/30 transition-colors">
+                  <div className="w-10 h-10 rounded-xl bg-violet-500/10 flex items-center justify-center mb-4">
+                    <cat.icon className="text-violet-400" size={20} />
+                  </div>
+                  <h3 className="text-white font-semibold mb-2">{cat.label}</h3>
+                  <p className="text-white/50 text-sm leading-relaxed">{cat.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Pourquoi ADSolutions */}
+        <section className="py-20 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-2xl sm:text-3xl font-bold text-white text-center mb-4">
+            Pourquoi{" "}
+            <span className="bg-gradient-to-r from-blue-400 to-violet-400 bg-clip-text text-transparent">ADSolutions</span> ?
+          </h2>
+          <p className="text-white/50 text-center mb-12 max-w-xl mx-auto">
+            Un accompagnement de bout en bout, pensé pour les entreprises qui veulent un outil qui leur ressemble.
+          </p>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {pourquoi.map((item) => (
+              <div key={item.label} className="flex items-start gap-3 p-4 rounded-2xl bg-white/3 border border-white/8">
+                <div className="w-9 h-9 rounded-xl bg-violet-500/10 flex items-center justify-center flex-shrink-0">
+                  <item.icon className="text-violet-400" size={18} />
+                </div>
+                <div>
+                  <h3 className="text-white font-semibold text-sm mb-1">{item.label}</h3>
+                  <p className="text-white/50 text-sm leading-relaxed">{item.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* FAQ */}
+        <FAQSection />
+
+        {/* CTA final */}
         <section className="py-20 bg-[#04081A]">
           <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <Code2 className="w-12 h-12 text-violet-400 mx-auto mb-6" />
             <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4">
-              Prêt à automatiser votre activité ?
+              Parlons de votre projet
             </h2>
             <p className="text-white/55 mb-8">
-              Développeur logiciel indépendant en Lot-et-Garonne — je vous accompagne de A à Z pour créer l'outil qui correspond vraiment à votre métier.
+              Développeur logiciel indépendant en Lot-et-Garonne — je vous accompagne de A à Z pour créer l&apos;outil qui correspond vraiment à votre métier.
             </p>
-            <a
-              href="mailto:contact@adsolutions47.fr?subject=Demande%20de%20devis%20logiciel%20sur%20mesure"
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-2xl font-semibold text-white bg-gradient-to-r from-blue-600 via-violet-600 to-pink-600 hover:opacity-90 shadow-[0_0_40px_rgba(124,58,237,0.35)] transition-all duration-300"
-            >
-              Démarrer mon projet
-              <ArrowRight size={18} />
-            </a>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <a
+                href="mailto:contact@adsolutions47.fr?subject=Demande%20de%20devis%20logiciel%20sur%20mesure"
+                className="inline-flex items-center gap-2 px-8 py-4 rounded-2xl font-semibold text-white bg-gradient-to-r from-blue-600 via-violet-600 to-pink-600 hover:opacity-90 shadow-[0_0_40px_rgba(124,58,237,0.35)] transition-all duration-300"
+              >
+                Demander un devis
+                <ArrowRight size={18} />
+              </a>
+              <Link
+                href="/realisations"
+                className="inline-flex items-center gap-2 px-8 py-4 rounded-2xl font-semibold text-white/80 border border-white/15 hover:border-white/30 hover:text-white transition-all duration-300"
+              >
+                Découvrir nos réalisations
+              </Link>
+            </div>
             <p className="text-white/35 text-sm mt-4">Réponse sous 24h · Échange gratuit · Sans engagement</p>
           </div>
         </section>

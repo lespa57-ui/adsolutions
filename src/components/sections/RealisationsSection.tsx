@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
 import { BarChart3, FileText, Layout, Activity, Database } from "lucide-react";
 
 const realisations = [
@@ -89,6 +90,11 @@ export default function RealisationsSection() {
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
             Projets réalisés sur mesure — aucun client réel mentionné
           </div>
+          <p className="mt-4">
+            <Link href="/realisations" className="text-violet-400 hover:text-violet-300 text-sm font-medium transition-colors">
+              Voir toutes nos réalisations →
+            </Link>
+          </p>
         </motion.div>
 
         <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

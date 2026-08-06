@@ -75,7 +75,7 @@ export default function ContactSection() {
                 <div>
                   <p className="text-white/40 text-xs font-medium uppercase tracking-wider mb-1">Zone géographique</p>
                   <p className="text-white font-semibold text-sm sm:text-base">
-                    Lot-et-Garonne & Dordogne
+                    Agen · Lot-et-Garonne & Dordogne
                   </p>
                 </div>
               </motion.div>
